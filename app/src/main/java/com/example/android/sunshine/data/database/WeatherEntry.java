@@ -17,6 +17,7 @@
 package com.example.android.sunshine.data.database;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
@@ -48,6 +49,7 @@ public class WeatherEntry {
      * @param wind Wind speed
      * @param degrees Wind direction
      */
+    @Ignore
     public WeatherEntry(int weatherIconId, Date date, double min, double max, double humidity, double pressure, double wind, double degrees) {
         this.weatherIconId = weatherIconId;
         this.date = date;
