@@ -25,6 +25,7 @@ import com.example.android.sunshine.AppExecutors;
 import com.example.android.sunshine.R;
 import com.example.android.sunshine.data.database.WeatherEntry;
 import com.example.android.sunshine.databinding.ActivityDetailBinding;
+import com.example.android.sunshine.utilities.InjectorUtils;
 import com.example.android.sunshine.utilities.SunshineDateUtils;
 import com.example.android.sunshine.utilities.SunshineWeatherUtils;
 
@@ -81,6 +82,12 @@ public class DetailActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
+
+        Date normalizedUtcDateForToday = SunshineDateUtils.getNormalizedUtcDateForToday();
+        DetailViewModelFactory factory = InjectorUtils.provideDetailViewModelFactory(this, normalizedUtcDateForToday);
+
+        ViewModelProviders.of(this, factory).get(DetailActivityViewModel.class);
+
 
 
 
