@@ -119,9 +119,11 @@ public class SunshineRepository {
     }
 
 
-    LiveData<WeatherEntry> getWeatherbyDate(Date date){
+    public LiveData<WeatherEntry> getWeatherByDate(Date date) {
         initializeData();
         return mWeatherDao.getWeatherByDate(date);
     }
+
+
 
 }
